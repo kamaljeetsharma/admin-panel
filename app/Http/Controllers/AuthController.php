@@ -87,9 +87,16 @@ public function login(Request $request)
             'user' => Auth::user()
         ], 200);
     }
-    return response()->json(['message' => 'Invalid email or password.'], 401);
+   
+    else {
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return response()->json(['message' => 'Email not found.'], 404);
+        } elseif (!Hash::check($request->password, $user->password)) {
+            return response()->json(['message' => 'Incorrect password.'], 401);
+        } //return response()->json(['message' => 'Invalid email or password.'], 401);
+    }
 }
-
     public function logout(Request $request)
 {
     Auth::logout();

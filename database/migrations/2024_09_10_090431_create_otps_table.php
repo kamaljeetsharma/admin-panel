@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('otps', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id();  // Auto-incrementing primary key
+            $table->string('email');  // Email column to store user's email
+            $table->string('otp');    // OTP column to store the generated OTP
+            $table->timestamp('expires_at')->nullable();  // Expiration timestamp for the OTP
+            $table->timestamps();  // Adds created_at and updated_at columns
         });
     }
 

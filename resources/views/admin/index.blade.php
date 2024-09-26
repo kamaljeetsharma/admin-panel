@@ -52,7 +52,7 @@
         
                             <div class="form-group">
                                 <label for="inputEmail">{{__('lang.Email')}}</label>
-                                <input type="email" id="inputEmail" name="email" class="form-control" readonly>
+                                <input type="Email" id="inputEmail" name="Email" class="form-control" readonly>
                                 <span id="email-error" class="text-danger"></span>
                             </div>
         
